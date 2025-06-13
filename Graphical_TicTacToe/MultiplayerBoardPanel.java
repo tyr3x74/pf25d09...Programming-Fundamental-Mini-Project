@@ -35,10 +35,10 @@ public class MultiplayerBoardPanel extends JPanel {
             if (board.hasWon(currentPlayer, row, col)) {
                 String winner = currentPlayer == Seed.CROSS ? "X" : "O";
                 JOptionPane.showMessageDialog(this, winner + " wins!");
-                resetGame();
+                Confirm();
             } else if (board.isDraw()) {
                 JOptionPane.showMessageDialog(this, "It's a draw!");
-                resetGame();
+                Confirm();
             } else {
                 togglePlayer();
             }
@@ -56,6 +56,27 @@ public class MultiplayerBoardPanel extends JPanel {
             for (int col = 0; col < 3; col++) {
                 buttons[row][col].setText("");
             }
+        }
+    }
+    private void Confirm() {
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Ingin bermain lagi?",
+                "Game Selesai",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            resetGame();
+        } else {
+            // Tutup window game
+            Window window = SwingUtilities.getWindowAncestor(this);
+            if (window != null) {
+                window.dispose();
+            }
+
+            // Jalankan kembali Main menu secara aman
+            SwingUtilities.invokeLater(() -> Main.main(new String[]{}));
         }
     }
 }

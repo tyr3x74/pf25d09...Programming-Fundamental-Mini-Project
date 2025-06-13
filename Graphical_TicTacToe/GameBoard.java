@@ -52,11 +52,11 @@ public class GameBoard extends JPanel {
     private boolean checkGameOver(char player) {
         if (GameUtils.hasWon(board, player)) {
             JOptionPane.showMessageDialog(this, player + " wins!");
-            resetGame();
+            Confirm();
             return true;
         } else if (GameUtils.isDraw(board)) {
             JOptionPane.showMessageDialog(this, "It's a draw!");
-            resetGame();
+            Confirm();
             return true;
         }
         return false;
@@ -69,5 +69,26 @@ public class GameBoard extends JPanel {
         playerTurn = true;
         board = new char[3][3];
         initBoard();
+    }
+    private void Confirm() {
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Ingin bermain lagi?",
+                "Game Selesai",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            resetGame();
+        } else {
+            // Tutup window game
+            Window window = SwingUtilities.getWindowAncestor(this);
+            if (window != null) {
+                window.dispose();
+            }
+
+            // Jalankan kembali Main menu secara aman
+            SwingUtilities.invokeLater(() -> Main.main(new String[]{}));
+        }
     }
 }
