@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Locale;
 
-public class MySqlExample {
+public class Connect {
     public static void main(String[] args) throws ClassNotFoundException {
         String host, port, databaseName, userName, password;
         host = port = databaseName = userName = password = null;
