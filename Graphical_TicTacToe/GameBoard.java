@@ -1,3 +1,5 @@
+import Graphical_TicTacToe.SoundManager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -32,6 +34,7 @@ public class GameBoard extends JPanel {
             buttons[row][col].setText("X");
             board[row][col] = 'X';
             playerTurn = false;
+            SoundManager.playSound("audio/click_TicTacToe.wav");
             if (!checkGameOver('X')) {
                 aiMove();
             }
@@ -43,6 +46,8 @@ public class GameBoard extends JPanel {
         if (move[0] != -1) {
             board[move[0]][move[1]] = 'O';
             buttons[move[0]][move[1]].setText("O");
+
+            SoundManager.playSound("audio/click_TicTacToe.wav");
         }
         if (!checkGameOver('O')) {
             playerTurn = true;
@@ -51,10 +56,12 @@ public class GameBoard extends JPanel {
 
     private boolean checkGameOver(char player) {
         if (GameUtils.hasWon(board, player)) {
+            SoundManager.playSound("audio/win_TicTacToe.wav");
             JOptionPane.showMessageDialog(this, player + " wins!");
             Confirm();
             return true;
         } else if (GameUtils.isDraw(board)) {
+            SoundManager.playSound("audio/game_over_TicTacToe.wav");
             JOptionPane.showMessageDialog(this, "It's a draw!");
             Confirm();
             return true;
@@ -71,6 +78,7 @@ public class GameBoard extends JPanel {
         initBoard();
     }
     private void Confirm() {
+        SoundManager.playSound("audio/playAgain_TicTacToe.wav");
         int response = JOptionPane.showConfirmDialog(
                 this,
                 "Ingin bermain lagi?",
@@ -79,6 +87,7 @@ public class GameBoard extends JPanel {
         );
 
         if (response == JOptionPane.YES_OPTION) {
+            SoundManager.playSound(("audio/playagain.wav"));
             resetGame();
         } else {
             // Tutup window game

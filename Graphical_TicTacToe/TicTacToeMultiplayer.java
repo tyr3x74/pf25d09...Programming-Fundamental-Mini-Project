@@ -1,3 +1,5 @@
+import Graphical_TicTacToe.SoundManager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

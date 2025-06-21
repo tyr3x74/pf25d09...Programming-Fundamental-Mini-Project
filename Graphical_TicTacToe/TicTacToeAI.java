@@ -1,8 +1,11 @@
+import Graphical_TicTacToe.SoundManager;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class TicTacToeAI extends JFrame {
     private GameBoard gameBoard;
+
 
     public TicTacToeAI() {
         setTitle("Tic Tac Toe - SOLO vs AI");

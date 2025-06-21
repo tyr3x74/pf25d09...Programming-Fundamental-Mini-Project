@@ -1,7 +1,10 @@
+import Graphical_TicTacToe.SoundManager;
+
 public class Board {
     public static final int ROWS = 3;
     public static final int COLS = 3;
     public Cell[][] cells;
+    SoundManager sound = new SoundManager();
 
     public Board() {
         cells = new Cell[ROWS][COLS];
