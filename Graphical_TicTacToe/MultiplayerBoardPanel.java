@@ -72,7 +72,7 @@ public class MultiplayerBoardPanel extends JPanel {
         );
 
         if (response == JOptionPane.YES_OPTION) {
-            SoundManager.playSound("audio/playAgain_TicTacToe.wav");
+            SoundManager.playSound("audio/playagain_TicTacToe.wav");
             resetGame();
         } else {
             // Tutup window game
@@ -82,7 +82,7 @@ public class MultiplayerBoardPanel extends JPanel {
             }
 
             // Jalankan kembali Main menu secara aman
-            SwingUtilities.invokeLater(() -> Main.main(new String[]{}));
+            SwingUtilities.invokeLater(() -> new MainMenu());
         }
     }
 }

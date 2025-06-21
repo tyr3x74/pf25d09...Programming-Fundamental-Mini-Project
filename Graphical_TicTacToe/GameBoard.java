@@ -2,7 +2,6 @@ import Graphical_TicTacToe.SoundManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class GameBoard extends JPanel {
     private JButton[][] buttons = new JButton[3][3];
@@ -78,7 +77,7 @@ public class GameBoard extends JPanel {
         initBoard();
     }
     private void Confirm() {
-        SoundManager.playSound("audio/playAgain_TicTacToe.wav");
+        SoundManager.playSound("audio/playagain_TicTacToe.wav");
         int response = JOptionPane.showConfirmDialog(
                 this,
                 "Ingin bermain lagi?",
@@ -87,7 +86,7 @@ public class GameBoard extends JPanel {
         );
 
         if (response == JOptionPane.YES_OPTION) {
-            SoundManager.playSound(("audio/playagain.wav"));
+            SoundManager.playSound(("audio/playagain_TicTacToe.wav"));
             resetGame();
         } else {
             // Tutup window game
@@ -97,7 +96,7 @@ public class GameBoard extends JPanel {
             }
 
             // Jalankan kembali Main menu secara aman
-            SwingUtilities.invokeLater(() -> Main.main(new String[]{}));
+            SwingUtilities.invokeLater(() -> new MainMenu()); // Changed from Main.main
         }
     }
 }

@@ -1,48 +1,24 @@
-import Graphical_TicTacToe.SoundManager;
+// AppLauncher.java
+import javax.swing.SwingUtilities;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-
-public class Main extends JFrame {
-    public Main() {
-        setTitle("Main Menu");
-        setSize(300, 200);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(new GridLayout(2, 1, 10, 10));
-        SoundManager sound = new SoundManager();
-
-        JButton soloButton = new JButton("SOLO");
-        JButton multiButton = new JButton("MULTIPLAYER");
-
-        soloButton.addActionListener(e -> {
-            dispose(); // tutup menu
-            new TicTacToeAI(); // buka game vs AI
-            sound.playSound("audio/click_TicTacToe.wav");
-        });
-
-        multiButton.addActionListener(e -> {
-            dispose();
-            new TicTacToeMultiplayer();
-            sound.playSound("audio/click_TicTacToe.wav");
-        });
-
-        add(soloButton);
-        add(multiButton);
-
-        setVisible(true);
-    }
+public class Main {
 
     public static void main(String[] args) {
-        SoundManager sound = new SoundManager();
-        sound.playBackground("audio/background_TicTacToe.wav");
+        // --- IMPORTANT: CONFIGURE YOUR AIVEN CLOUD DATABASE DETAILS HERE ---
+        // Replace these placeholder values with your actual Aiven connection credentials.
+        String dbHost = "mysql-22b2418e-mzakynaufalbasuki-08c0.j.aivencloud.com"; // e.g., "my-mysql-service-abcd.aivencloud.com"
+        String dbPort = "17851"; // e.g., "12345"
+        String dbName = "defaultdb"; // e.g., "defaultdb" or your specific database name
+        String dbUser = "avnadmin"; // e.g., "avnadmin"
+        String dbPass = "AVNS_-CeYHlZTj8awQ3MJS1L"; // Your Aiven service password
 
-        new Main();
+        // Set the connection parameters for the Connect class
+        Connect.setConnectionParams(dbHost, dbPort, dbName, dbUser, dbPass);
+
+        // Ensure the Swing UI is created and updated on the Event Dispatch Thread (EDT)
+        SwingUtilities.invokeLater(() -> {
+
+            new AuthFrame(); // Start the authentication process
+        });
     }
 }
-
-
-
-
-
