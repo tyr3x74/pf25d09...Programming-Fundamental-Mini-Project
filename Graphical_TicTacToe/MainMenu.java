@@ -13,7 +13,6 @@ public class MainMenu extends JFrame { // Renamed from Main
         setLayout(new GridLayout(2, 1, 10, 10)); // Adjusted for game options only
         SoundManager sound = new SoundManager();
 
-        SoundManager.playSound("audio/background_TicTacToe.wav");
 
         JButton soloButton = new JButton("SOLO");
         JButton multiButton = new JButton("MULTIPLAYER");

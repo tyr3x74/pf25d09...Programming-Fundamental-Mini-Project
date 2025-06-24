@@ -86,7 +86,7 @@ public class GameBoard extends JPanel {
         );
 
         if (response == JOptionPane.YES_OPTION) {
-            SoundManager.playSound(("audio/playagain_TicTacToe.wav"));
+
             resetGame();
         } else {
             // Tutup window game

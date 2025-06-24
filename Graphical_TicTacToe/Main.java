@@ -1,4 +1,6 @@
 // AppLauncher.java
+import Graphical_TicTacToe.SoundManager;
+
 import javax.swing.SwingUtilities;
 
 public class Main {
@@ -14,6 +16,8 @@ public class Main {
 
         // Set the connection parameters for the Connect class
         Connect.setConnectionParams(dbHost, dbPort, dbName, dbUser, dbPass);
+        SoundManager.playSound("audio/background_TicTacToe.wav");
+
 
         // Ensure the Swing UI is created and updated on the Event Dispatch Thread (EDT)
         SwingUtilities.invokeLater(() -> {
