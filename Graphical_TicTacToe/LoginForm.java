@@ -1,3 +1,4 @@
+// LoginForm.java
 import Graphical_TicTacToe.SoundManager;
 
 import javax.swing.*;
@@ -67,7 +68,8 @@ public class LoginForm extends JFrame {
                 dispose(); // Close LoginForm
                 parentAuthFrame.dispose(); // Close AuthFrame permanently
 
-                new MainMenu(); // Open the main game menu
+                // Pass the logged-in username to the MainMenu for display purposes
+                new MainMenu(username); // Open the main game menu
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login Failed", JOptionPane.ERROR_MESSAGE);
             }
