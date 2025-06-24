@@ -16,6 +16,7 @@ public class Main {
 
         // Set the connection parameters for the Connect class
         Connect.setConnectionParams(dbHost, dbPort, dbName, dbUser, dbPass);
+
         SoundManager.playSound("audio/background_TicTacToe.wav");
 
 
