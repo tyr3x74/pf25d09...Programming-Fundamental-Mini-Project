@@ -13,7 +13,7 @@ public class TicTacToeAI extends JFrame {
         this.loggedInUsername = username;
 
         setTitle("Tic Tac Toe - SOLO vs AI (" + loggedInUsername + ")"); // Update title
-        setSize(400, 400);
+        setSize(600, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         // Pass the logged-in username to the GameBoard constructor for display

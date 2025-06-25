@@ -14,7 +14,7 @@ public class TicTacToeMultiplayer extends JFrame {
         this.loggedInUsername = username;
 
         setTitle("TicTacToe - MULTIPLAYER (Player X: " + loggedInUsername + ")"); // Indicate who is player X
-        setSize(400, 400);
+        setSize(650, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 

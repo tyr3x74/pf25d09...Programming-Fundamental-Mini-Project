@@ -1,7 +1,7 @@
 // AppLauncher.java
 import Graphical_TicTacToe.SoundManager;
 
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 public class Main {
 
@@ -16,6 +16,22 @@ public class Main {
 
         // Set the connection parameters for the Connect class
         Connect.setConnectionParams(dbHost, dbPort, dbName, dbUser, dbPass);
+
+        try {
+            // Option 1: System Look and Feel (looks native to OS)
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+            // Option 2: Nimbus Look and Feel (clean, cross-platform, built-in)
+             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+
+            // Option 3: FlatLaf (Highly recommended for modern, flat design)
+            // Requires adding the FlatLaf dependency to your project (e.g., via Maven/Gradle or JAR)
+            // FlatLaf.install(); // For FlatLaf Dark, Light, etc.
+            // UIManager.setLookAndFeel(new FlatLightLaf()); // Example FlatLaf theme
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Could not set Look and Feel: " + e.getMessage());
+        }
 
         SoundManager.playSound("audio/background_TicTacToe.wav");
 
