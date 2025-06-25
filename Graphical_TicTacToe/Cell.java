@@ -12,12 +12,5 @@ public class Cell extends JPanel {
         this.row = row;
         this.col = col;
         this.content = Seed.EMPTY;
-
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                SoundManager.playSound("audio/click_TicTacToe.wav");
-            }
-        });
     }
 }
